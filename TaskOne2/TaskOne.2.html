@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task one 2.1</title>
+</head>
+<body>
+    <div id="container"></div>
+    <script>
+        var container = document.getElementById("container");
+        var notes = [
+        {scenario: 1, intro: "This is the introduction.", que: "What is the weight of ....?"}
+        
+        ];
+        function terminal(cl, i) {
+        var div = document.createElement('div');
+        div.className = cl;
+        container.appendChild(div);
+        var txt = [notes[0].intro, notes[0].que].join('\n').split('');
+        var i = 0;
+        (function display() {
+            if(i < txt.length) {
+            div.innerHTML += txt[i].replace('\n', '<br />');
+            ++i;
+            setTimeout(display, 100);
+            }
+        })();
+        }
+        terminal('blueTh', 0);
+    </script>
+</body>
+
+</html>

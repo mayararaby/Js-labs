@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing message</title>
+</head>
+<body>
+    <p>
+        A.1.2. Write a script that shows a “typing message” appearing in 
+        a new child window. The new window should close after few 
+        seconds of displaying your message.
+    </p>
+    <h1>
+        Typing message
+    </h1>
+    <hr>
+    <button onclick="OpenMSG()">
+        Show message
+    </button>
+    <script>
+        var myWin ;
+        function OpenMSG() {
+            myWin = window.open("TaskOne.2.html","","width=300,height=150");
+            setTimeout(() => {
+                myWin.close();
+            }, 10000);
+        }
+    </script>
+</body>
+</html>

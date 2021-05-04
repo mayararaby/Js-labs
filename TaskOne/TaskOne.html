@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlyingWin</title>
+</head>
+<body>
+    <button onclick="StopFlyWin()">
+        Stop
+    </button>
+    <script>
+        var myWin= window.open("","","width=150,height=150")
+        var flyWin = setInterval(() => {
+            myWin.moveBy(20,20)
+        }, 500);
+        myWin.focus();
+        function StopFlyWin() {
+            clearInterval(flyWin);
+        }
+    </script>
+</body>
+</html>

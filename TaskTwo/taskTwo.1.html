@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<body>
+    <h1 id="userName">
+    </h1>
+    <h2 id="title">
+
+    </h2>
+    <h2 id="Add">
+
+    </h2>
+    <h2 id="Gender">
+
+    </h2>
+    <h2 id="Email">
+
+    </h2>
+    <h2 id="Mobile">
+
+    </h2>
+    <script>
+        var greating = location.search;
+        function parse_query_string(query) {
+            var vars = query.split("&");
+            var query_string = {};
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                var key = decodeURIComponent(pair[0]);
+                var value = decodeURIComponent(pair[1]);
+                // If first entry with this name
+                if (typeof query_string[key] === "undefined") {
+                query_string[key] = decodeURIComponent(value);
+                // If second entry with this name
+                } else if (typeof query_string[key] === "string") {
+                var arr = [query_string[key], decodeURIComponent(value)];
+                query_string[key] = arr;
+                // If third or later entry with this name
+                } else {
+                query_string[key].push(decodeURIComponent(value));
+                }
+            }
+            return query_string;
+            }
+            var parsed_qs = parse_query_string(greating);
+            console.log(parsed_qs);
+            console.log(typeof(parsed_qs));
+            document.getElementById("userName").innerHTML="Welcome "+parsed_qs[Object.keys(parsed_qs)[0]];
+            document.getElementById("title").innerHTML="Your title is "+parsed_qs[Object.keys(parsed_qs)[2]];
+            document.getElementById("Add").innerHTML="Address: "+parsed_qs[Object.keys(parsed_qs)[3]];
+            document.getElementById("Gender").innerHTML="Gender: "+parsed_qs[Object.keys(parsed_qs)[4]];
+            document.getElementById("Email").innerHTML="Email: "+parsed_qs[Object.keys(parsed_qs)[5]];
+            document.getElementById("Mobile").innerHTML="Mobile: "+parsed_qs[Object.keys(parsed_qs)[6]];
+
+
+
+
+
+
+    </script>
+</body>
+</html>
