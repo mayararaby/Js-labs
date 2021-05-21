@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day One</title>
+
+</head>
+<body>
+    <div id="message">
+
+    </div>
+    <div id="out">
+
+    </div>
+    <h1 id="Result"></h1>
+    <script>
+        //Task One
+        var message = prompt("Enter the message")
+        for (let index = 1; index < 7; index++) {
+            document.writeln("<h"+index+">"+message+"</h"+index+">");
+        }
+        //Or
+        var div = document.getElementById("out");
+        var header, i, max = 7;
+        for(i=1;i<max;i++) {
+            header = document.createElement("h"+i);
+            header.textContent = message;
+            div.appendChild(header);
+        }
+        var Result = 0;
+        while (true) {
+            var sumOfnumbers = prompt("Enter Number",Result) ;
+            sumOfnumbers= parseInt(sumOfnumbers);
+            if (checkInp(sumOfnumbers) == false || sumOfnumbers == 0 )
+                break;
+            Result += sumOfnumbers ;
+            if (Result > 100 || Result == 100)
+                break;
+        }
+        document.getElementById("Result").innerHTML=Result;
+        function checkInp(thevalue)
+        {
+            if (isNaN(thevalue)) 
+            {
+                alert("Must input numbers");
+                return false;
+            }
+        }
+        
+    </script>
+</body>
+</html>

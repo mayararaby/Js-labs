@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day One - 3</title>
+    <style>
+        .coloring {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h3>
+        Adding - Multiplying - Dividing for 3 values 
+    </h3>
+    <hr>
+    <label id="Adding" class="coloring">
+        Sum of the three values
+    </label>
+    <label id="+"></label>
+    <br>
+    <label id="Multiplication" class="coloring">
+        Multiplication of the three values
+    </label>
+    <label id="*"></label>
+    <br>
+    <label id="Division" class="coloring">
+        Division of the three values 
+    </label>
+    <label id="/"></label>
+    <script>
+        var inputArray = [];
+        var size = 3; //Maximum Array size
+        for(var i=0; i<size; i++) {
+            
+            //Taking Input from user
+            inputArray[i] = prompt('Enter Element ' + (i+1));
+        }
+        var Adding = inputArray[0]+ inputArray[1] + inputArray[2];
+        var Multiplying = inputArray[0]* inputArray[1] * inputArray[2];
+        var Dividing = inputArray[0]/ inputArray[1] / inputArray[2];
+        document.getElementById("+").innerHTML= inputArray[0]+"+"+inputArray[1]+"+"+inputArray[2]+"="+Adding;
+        document.getElementById("*").innerHTML= inputArray[0]+"*"+inputArray[1]+"*"+inputArray[2]+"="+Multiplying;
+        document.getElementById("/").innerHTML= inputArray[0]+"/"+inputArray[1]+"/"+inputArray[2]+"="+Dividing;
+
+    </script>
+</body>
+</html>

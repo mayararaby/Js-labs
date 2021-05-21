@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DayOne - 2</title>
+</head>
+<body>
+    <div id="Result">
+
+    </div>
+    <script>
+        var str = prompt("Enter your caption","Here")
+        str = str.toLowerCase();
+        var counter = 0 ;
+        for (var i = 0; i < str.length; i++) {
+            if (str.charAt(i) == 'e')
+                counter ++ ;
+        }
+        document.getElementById("Result").innerHTML="<h2>Your entered E : "+ counter+" Times</h2>"
+        var chekedInput = prompt('Enter a string: ');
+        var chekedCaseSensitivity = prompt('Do you want to ignore latter  case sensitivity: (n for no y for yes)','N');
+        chekedCaseSensitivity = chekedCaseSensitivity.toLowerCase();
+        function checkPalindrome(word) {
+        var len = word.length;
+        if (chekedCaseSensitivity == 'y')
+            word = word.toLowerCase();
+        for (let i = 0; i < len / 2; i++) {
+            if (word[i] !== word[len - 1 - i]) {
+                return 'It is not a palindrome';
+            }
+        }
+        return 'It is a palindrome';
+        }
+        document.writeln(checkPalindrome(chekedInput)) ;
+    </script>
+</body>
+</html>

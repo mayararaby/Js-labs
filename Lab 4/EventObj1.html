@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+</head>
+
+<body>
+
+    <!-- <form> -->
+    <input type="text" size="2" maxlength="1" onkeyup="fun(event); this.select()" />
+    <!-- </form> -->
+    <script type="text/javascript">
+        function fun(e) {
+            var unicode;
+            if (e.keyCode) {
+                console.log(e.keyCode)
+                unicode = e.keyCode;
+            } else {
+                unicode = e.charCode;
+                console.log(e.charCode);
+            }
+            switch (unicode) {
+                case 17:
+                    alert(unicode + " You pressed CTRL")
+                    break;
+                case 16:
+                    alert(unicode + " You pressed SHIFT")
+                    break;
+                case 18:
+                    alert(unicode + " You pressed ALT")
+                    break;
+                default:
+                    alert(unicode);
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+
+</head>
+
+<body>
+
+    <div id="message">
+        <span id="counter"></span>
+    </div>
+    <script>
+        function getAllcookie() {
+            var arr = [];
+            var sCookie = document.cookie.split(";")
+            for (var i = 0; i < sCookie.length; i++) {
+                arr[sCookie[i].split("=")[0].trim()] = sCookie[i].split("=")[1]
+            }
+            return arr;
+        }
+
+        function checkCookie() {
+            var resualt = getAllcookie();
+            var container = document.getElementById("message");
+            var uName = resualt["UserName"];
+            var uColor = resualt["Color"];
+            if (resualt["gender"] == "male") {
+                var image = document.createElement("img");
+                image.src = "1.jpg";
+                container.appendChild(image);
+                if (typeof(Storage) != "undefined") {
+                    if (localStorage.getItem("count") === "undefined") {
+                        localStorage.setItem("count", "1");
+                    }
+                    var count = localStorage.getItem("count");
+                    count++;
+                    localStorage.setItem("count", count);
+                    container.innerHTML += "welcome <span style='color:" + uColor +
+                        ";'>" + uName + "</span>  you have visit our site  <span style='color:" +
+                        uColor + ";'>" + count + "</span> times";
+                }
+            } else {
+                var image = document.createElement("img");
+                image.src = "2.jpg";
+                container.appendChild(image);
+                if (typeof(Storage) != "undefined") {
+                    if (localStorage.getItem("count") === "undefined") {
+                        localStorage.setItem("count", "1");
+                    }
+                    var count = localStorage.getItem("count");
+                    count++;
+                    localStorage.setItem("count", count);
+                    container.innerHTML += "welcome <span style='color:" + uColor + ";'>" +
+                        uName + "</span>  you have visit our site  <span style='color:" +
+                        uColor + ";'>" + count + "</span> times";
+                }
+            }
+        }
+        checkCookie()
+    </script>
+</body>
+
+</html>

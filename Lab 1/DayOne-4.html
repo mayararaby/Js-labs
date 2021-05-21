@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day One - 4</title>
+</head>
+<body>
+    <div id="angle">
+
+    </div>
+    <script>
+        //Task one 
+        function calculateArea(myRadius) {
+            return (myRadius * myRadius * Math.PI);
+        }
+        var radius = prompt("Enter the radius","Type radius here");
+        alert("Total area of the circle is "+calculateArea(radius));
+        //Task Two 
+        function calculateArea_(value) {
+            return (Math.sqrt(value));
+        }
+        var val = prompt("Enter the number","Type number here");
+        alert("square root of "+val+" is "+calculateArea_(val));
+        //Task three
+        function calculateArea__(angle) {
+            return (Math.cos(angle));
+        }
+        var angle = prompt("What is the angle you want to calculate its cos value","Type number here");
+        document.getElementById("angle").innerHTML="<h3>Cos "+angle+" is "+calculateArea__(angle)+ "</h3>"
+    </script>
+</body>
+</html>

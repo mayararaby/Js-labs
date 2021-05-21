@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day One 2.3</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                Enter your name
+            </td>
+            <td>
+                <input type="text" id="userName" value=""/>
+                <br>
+                <label>
+                    should be letters I.e not numbers
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Enter your phone number
+            </td>
+            <td>
+                <input type="number" id="phoneNumber" value="" />
+                <br>
+                <label>
+                    Should be number with length = 8
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Enter your mobile number
+            </td>
+            <td>
+                <input type="number" id="mobileNumber" value="" />
+                <br>
+                <label>
+                    Should be number with length = 11 and started with 010 , 012 , 011
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Enter your Email
+            </td>
+            <td>
+                <input type="email" id="email" value="" />
+                <br>
+                <label>
+                    Should be with email format
+                </label>
+            </td>
+        </tr>
+        
+    </table>
+        <button onclick="getValues()">
+            try now
+        </button>
+        <table>
+            <tr>
+                <td id="welcomeName" class="color"></td>
+                <td id="Name"></td>
+            </tr>
+            <tr>
+                <td id="welcomePhone" class="color"></td>
+                <td id="Phone" ></td>
+            </tr>
+            <tr>
+                <td id="welcomeMobile" class="color"></td>
+                <td id="Mobile"></td>
+            </tr>
+            <tr>
+                <td id="welcomeEmail" class="color" ></td>
+                <td id="mail"></td>
+            </tr>
+            <tr>
+                <td id="welcomeDate" class="color"></td>
+                <td class="color" id="date"></td>
+            </tr>
+        </table>
+    <script>
+        
+            var month = new Array();
+            month[0] = "January";
+            month[1] = "February";
+            month[2] = "March";
+            month[3] = "April";
+            month[4] = "May";
+            month[5] = "June";
+            month[6] = "July";
+            month[7] = "August";
+            month[8] = "September";
+            month[9] = "October";
+            month[10] = "November";
+            month[11] = "December";
+
+            var d = new Date();
+            var n = month[d.getMonth()];
+            // document.getElementById("demo").innerHTML = n;
+        
+        function getValues()
+        {
+            var color = prompt("Enter the color you want y for yellow g for green r fot red");
+            color = color.toLowerCase(color);
+            console.log(color);
+            var colorName ;
+            var userName = document.getElementById("userName").value ;
+            userName = userName.toLowerCase();
+            var phoneNumber = document.getElementById("phoneNumber").value ;
+            var mobileNumber = document.getElementById("mobileNumber").value ;
+            var email = document.getElementById("email").value ;
+            var today = new Date();
+            var date = n +' '+ today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            if (color=='y')
+                colorName = 'yellow';
+            else if (color == 'g')
+                colorName= 'green' ;
+            else if (color == 'r')
+                colorName = 'red';
+            // else
+            //     document.writeln("You don't choose write color so the text is the default color")
+            //     colorName = 'blue'
+            if ((userName=> a && userName<= z) && phoneNumber.length== 8 &&mobileNumber.length ==11 )
+            {
+                document.getElementById("welcomeName").innerHTML = "Welcome dear gust";
+                document.getElementById("welcomeName").style.color = colorName;
+                document.getElementById("welcomePhone").innerHTML = "Your Phone Number is";
+                document.getElementById("welcomePhone").style.color = colorName;
+                document.getElementById("welcomeMobile").innerHTML = "Your Mobile Number is";
+                document.getElementById("welcomeMobile").style.color = colorName;
+                document.getElementById("welcomeEmail").innerHTML = "Your Email is";
+                document.getElementById("welcomeEmail").style.color = colorName;
+                document.getElementById("welcomeDate").innerHTML = "Today is";
+                document.getElementById("welcomeDate").style.color = colorName;
+                document.getElementById("Name").innerHTML = userName;
+                document.getElementById("Phone").innerHTML = phoneNumber;
+                document.getElementById("Mobile").innerHTML = mobileNumber;
+                document.getElementById("mail").innerHTML = email;
+                document.getElementById("date").innerHTML = date;
+            }
+            else
+            {
+                console.log("NN")
+            }
+        }
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>send Data</title>
+</head>
+
+<body>
+    <input type="text" name="Name" id="Name">
+    <input type="submit" name="submit" onclick="DisplayAlert()">
+    <div id="save"></div>
+    <script>
+        function DisplayAlert() {
+            setTimeout(() => {
+                let Confirm = confirm("for save data click here");
+                if (Confirm == true) {
+                    saveData();
+                } else {
+                    document.getElementById("Name").value = "";
+                }
+            }, 300);
+
+        }
+
+        function saveData() {
+            let Name = document.getElementById("Name").value;
+            alert("Data saved ..");
+            window.location.assign("Hi.html")
+        }
+    </script>
+</body>
+
+</html>

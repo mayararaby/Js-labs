@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP</title>
+</head>
+
+<body>
+    <script>
+        //TaskOne
+        let list = function(_start, _end, _step) {
+                this.start = _start;
+                this.end = _end;
+                this.step = _step;
+                this.getStart = function() {
+                    return this.start;
+                }
+                this.setStart = function(_start) {
+                    this.start = _start;
+                }
+                this.getEnd = function() {
+                    return this.end;
+                }
+                this.setEnd = function(_End) {
+                    this.end = _End;
+                }
+                this.getStep = function() {
+                    return this.step;
+                }
+                this.setStep = function(_Step) {
+                    this.step = _Step;
+                }
+                this.fillList = function() {
+                    var myList = [];
+                    for (var index = this.start; index <= this.end; index += this.step) {
+                        myList.push(index)
+                    }
+                    return myList
+                }
+                var myArr = this.fillList();
+                this.pop = function(number) {
+                    // console.log("in pop");
+                    var myNewList = [];
+                    var valueOfPoppedIndex = myArr[number];
+                    // console.log(myArr[number])
+                    var poppedValue = myArr.map(function(value) {
+                        myNewList.push(value);
+                        if (valueOfPoppedIndex == value) {
+                            // console.log(value)
+                            myNewList.splice(number, 1);
+                        }
+                        return myNewList;
+                    });
+                    myList = myNewList
+                    return myList;
+                }
+            }
+            //TestCase
+        var l1 = new list(10, 100, 15)
+        console.log(l1.fillList())
+        console.log(l1.pop(3))
+        l1.setEnd(200);
+        console.log(l1.fillList())
+        l1.setStep(20);
+        console.log(l1.fillList())
+
+        //Task two
+        let counter = 0;
+        let rectangle = function(_Width, _height) {
+            this.width = _Width ? _Width : 0;
+            this.height = _height ? _height : 0;
+            rectangle.counter++;
+        }
+        rectangle.counter = 0;
+        rectangle.prototype.calcPerimeter = function() {
+            return ((this.width + this.height) * 2);
+        }
+        rectangle.prototype.calcArea = function() {
+            return (this.width * this.height);
+        }
+        rectangle.prototype.toString = function() {
+            statement = `Width is ${this.width} Height is ${this.height} Area is ${this.calcArea()} Perimeter is ${this.calcPerimeter()}`;
+            return statement;
+        }
+        rectangle.getCounter = function() {
+                return (rectangle.counter);
+            }
+            //Test Cases
+        let r1 = new rectangle(3, 5);
+        // console.log(r1);
+        console.log(r1.toString());
+        let r2 = new rectangle(5, 4);
+        console.log(r2.toString());
+        let r3 = new rectangle(2, 2);
+        console.log(r3.toString());
+        let r4 = new rectangle(7, 8);
+        console.log(r4.toString());
+        let r5 = new rectangle(8, 1);
+        console.log(r5.toString());
+        let r6 = new rectangle(1, 9);
+        console.log(r6.toString());
+        let r7 = new rectangle(2, 3);
+        console.log(r7.toString());
+        console.log(rectangle.getCounter());
+        // Task three
+        let shape = function(_Width, _height) {
+            this.width = _Width ? _Width : 0;
+            this.height = _height ? _height : 0;
+        }
+        let Square = function(length) {
+            if (!Square.instance) {
+                shape.call(this, length)
+                Square.instance = this;
+            } else {
+                throw "You already made one"
+            }
+            return Square.instance
+        }
+        Square.prototype = new shape();
+        Square.prototype.constructor = Square;
+        Square.prototype.PerimeterOfSquare = function() {
+            return (this.width * 4);
+        }
+        Square.prototype.AreaOfSquare = function() {
+            return (this.width * 2);
+        }
+
+        Square.prototype.toString = function() {
+                var statement = `The area is ${this.PerimeterOfSquare()}  , the Perimeter is  ${this.AreaOfSquare()} `
+                return statement;
+            }
+            //Test Case
+        var s1 = new Square(2)
+        console.log(s1.toString())
+        var s1 = new Square(6)
+    </script>
+</body>
+
+</html>

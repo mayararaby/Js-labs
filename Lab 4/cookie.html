@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+
+</head>
+
+<body>
+    <script src="liberery.js"></script>
+
+    <table id="tableID">
+        <tr>
+            <td> Enter your name</td>
+            <td>
+                <input type="text" id="name" value="" required>
+            </td>
+        </tr>
+        <tr>
+            <td> Enter your age</td>
+            <td>
+                <input type="number" id="number" value="" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Female
+                <br>
+                <img src="2.jpg" width="50px">
+                <input type="radio" id="female" name="Gender" value="Female" required>
+            </td>
+            <td>
+                Male
+                <br>
+                <img src="1.jpg" width="30px">
+                <input type="radio" id="male" name="Gender" value="Male" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Select your color
+            </td>
+            <td>
+                <select id="colors">
+                    <option value="Black"></option>
+                    <option value="Red">Red</option>
+                    <option value="Green">Green</option>
+                    <option value="Yellow">Yellow</option>
+
+                </select>
+            </td>
+        </tr>
+        <tr align="center">
+            <td colspan="2">
+                <input type="submit" value="Done" onclick="saveData();newDoc()">
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

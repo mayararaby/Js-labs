@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <select id="FristSelect" onchange="onSelectProperty(this.value);">
+        <option value="."> </option>
+    </select>
+    <select id="SecondSelect" onchange="onSelectName(this.value);">
+    </select>
+    <script>
+        var Xhr = new XMLHttpRequest();
+        var jsObj;
+        let selectedName;
+        let selectedProperty;
+        Xhr.onreadystatechange = function() {
+            if (Xhr.readyState == 4) {
+                if (Xhr.status == 200) {
+                    jsObj = JSON.parse(Xhr.responseText);
+                    let selectBox = document.getElementById("FristSelect")
+                    for (let index = 0; index < Object.keys(jsObj).length; index++) {
+                        let option = Object.keys(jsObj)[index]
+                        selectBox.innerHTML += "<option value='" + option + "'>" + option + "</option>";
+                    }
+                    // onSelectProperty(Object.keys(jsObj)[0]);
+                }
+            }
+        }
+
+        function onSelectProperty(property) {
+            let element = jsObj[property];
+            selectedProperty = jsObj[property];
+            let selectBox = document.getElementById("SecondSelect");
+            selectBox.innerHTML = [];
+            let names = element.map(element => {
+                selectBox.innerHTML += "<option value='" + element.name + "'>" + element.name + "</option>";
+                return element.name;
+            });
+            return names;
+        };
+
+        function onSelectName(BnadName) {
+
+            console.log(selectedProperty);
+            console.log(BnadName);
+
+            let band = selectedProperty.map(selectedProperty => {
+                if (selectedProperty.name == BnadName) {
+                    console.log("True")
+                    window.location.assign(selectedProperty.value)
+                }
+                console.log(selectedProperty.name);
+                console.log(selectedProperty.value);
+
+                return selectedProperty.name;
+            });
+
+
+        }
+
+        Xhr.open("GET", "rockbands.json", true);
+        Xhr.send("");
+    </script>
+</body>
+
+</html>

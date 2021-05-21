@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day One3.2</title>
+    <style>
+        .coloring {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h3>
+        Sorting
+    </h3>
+    <hr>
+    <label class="coloring">
+        Descending
+    </label>
+    <label id="Descending"></label>
+    <br>
+    <label class="coloring">
+        Ascending
+    </label>
+    <label id="Ascending"></label>
+    <br>
+    <label class="coloring">
+        As you entered
+    </label>
+    <label id="entered"></label>
+    <script>
+        var inputArray = [];
+        var size = 5; //Maximum Array size
+        for(var i=0; i<size; i++) {
+            
+            //Taking Input from user
+            inputArray[i] = prompt('Enter Element ' + (i+1));
+        }
+        document.getElementById("entered").innerHTML = inputArray;
+        document.getElementById("Ascending").innerHTML = inputArray.sort();
+        document.getElementById("Descending").innerHTML = inputArray.sort(function(a, b){return b-a});
+
+
+    </script>
+</body>
+</html>
